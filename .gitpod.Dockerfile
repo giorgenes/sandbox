@@ -10,7 +10,7 @@ RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 RUN echo ". $HOME/.asdf/asdf.sh" >> $HOME/.bashrc.d/asdf.sh
 RUN echo ". $HOME/.asdf/completions/asdf.bash" >> $HOME/.bashrc.d/asdf.sh
 
-ENV BUMP_TO_FORCE_GITPOD_UPDATE=2
+ENV BUMP_TO_FORCE_GITPOD_UPDATE=3
 COPY .tool-versions $HOME/
 COPY install-asdf-plugins.sh $HOME/
 RUN ./install-asdf-plugins.sh
