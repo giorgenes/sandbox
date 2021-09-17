@@ -1,0 +1,7 @@
+ruby 2.6.3
+golang 1.16.5
+python 3.9.6
+awscli 2.2.20
+terraform 1.0.2
+sops 3.7.1
+java openjdk-10.0.1
