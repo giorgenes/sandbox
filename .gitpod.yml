@@ -1,9 +1,12 @@
 image:
   file: .gitpod.Dockerfile
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+
 tasks:
-  - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+  - init: |
+      export EDITOR="command gp open -w" VISUAL="command gp open -w"
+      cp -f /workspace/playground/template.zshrc ~/.zshrc
+    command: exec zsh
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:

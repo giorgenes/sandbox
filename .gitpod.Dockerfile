@@ -22,6 +22,9 @@ COPY install-asdf-plugins.sh $HOME/
 RUN ./install-asdf-plugins.sh
 RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 
+#
+RUN bash -ic "go get -v golang.org/x/tools/gopls"
+
 # ZSH
 ENV ZSH_THEME cloud
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
