@@ -1,4 +1,4 @@
-![robotrock](https://upload.wikimedia.org/wikipedia/en/8/84/RobotRock.DaftPunk.single.jpg)
+![robotrock](daft-punk-robot-rock.gif)
 
 # About
 
