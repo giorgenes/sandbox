@@ -16,3 +16,6 @@ COPY install-asdf-plugins.sh $HOME/
 RUN ./install-asdf-plugins.sh
 RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 
+# install ansible
+RUN RUN bash -ic "python -m pip install --user ansible"
+RUN RUN bash -ic "python -m pip install --user paramiko"
