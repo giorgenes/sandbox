@@ -8,6 +8,7 @@ RUN sudo apt-get update \
     && sudo apt-get install -y gnupg software-properties-common curl git dirmngr gpg gawk \
     build-essential procps file \
     packer \
+    zsh \
     && sudo rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
@@ -21,6 +22,14 @@ COPY install-asdf-plugins.sh $HOME/
 RUN ./install-asdf-plugins.sh
 RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 
+# ZSH
+ENV ZSH_THEME cloud
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+
 # install ansible
 #RUN bash -ic "python -m pip install --user ansible"
 #RUN bash -ic "python -m pip install --user paramiko"
+
+CMD [ "zsh" ]
+
