@@ -1,6 +1,6 @@
-$LOAD_PATH << '.'
+$LOAD_PATH << File.dirname(__FILE__)
 
-require 'median_of_two_sorted_arrays'
+require 'solution'
 require 'rspec'
 
 describe MedianOfTwo do

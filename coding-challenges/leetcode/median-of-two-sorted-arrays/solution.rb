@@ -60,10 +60,7 @@ module MedianOfTwo
         # assert(arr1.size >= arr2.size)
         
         l1, m1, r1 = partition(arr1)
-        l2, m2, r2 = partition(arr2)
-
-        byebug
-        
+        l2, m2, r2 = partition(arr2)        
         
         if m1.first >= m2.last      
             left = -> { [l1.last, l2.last, m2.last].compact.max }
@@ -170,3 +167,4 @@ end
 def find_median_sorted_arrays(nums1, nums2)
     MedianOfTwo.median2(nums1, nums2)
 end
+
