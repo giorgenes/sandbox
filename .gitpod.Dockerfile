@@ -14,11 +14,11 @@ RUN sudo apt-get update \
 # homebrew
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 RUN echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc.d/homebrew.sh
-RUN bash -lc "brew update"
+RUN bash -ic "brew update"
 
 # hygen
-RUN bash -lc "brew tap jondot/tap"
-RUN bash -lc "brew install hygen"
+RUN bash -ic "brew tap jondot/tap"
+RUN bash -ic "brew install hygen"
 
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 
