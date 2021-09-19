@@ -37,8 +37,12 @@ COPY install-asdf-plugins.sh $HOME/
 RUN ./install-asdf-plugins.sh
 RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 
-#
+# vscode go extension dependencies
 RUN bash -ic "go get -v golang.org/x/tools/gopls"
+RUN bash -ic "go get github.com/uudashr/gopkgs/v2/cmd/gopkgs"
+RUN bash -ic "go get github.com/ramya-rao-a/go-outline"
+RUN bash -ic "go get github.com/go-delve/delve/cmd/dlv"
+RUN bash -ic "go get honnef.co/go/tools/cmd/staticcheck"
 
 # hygen
 RUN bash -ic "npm i -g hygen"
