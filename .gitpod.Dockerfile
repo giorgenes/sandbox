@@ -12,19 +12,19 @@ RUN sudo apt-get update \
     && sudo rm -rf /var/lib/apt/lists/*
 
 # homebrew
-ENV TRIGGER_BREW_REBUILD=2
-RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-ENV PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/
-ENV MANPATH="$MANPATH:/home/linuxbrew/.linuxbrew/share/man"
-ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
-ENV HOMEBREW_NO_AUTO_UPDATE=1
-RUN sudo apt remove -y cmake \
-    && brew install cmake
+# ENV TRIGGER_BREW_REBUILD=2
+# RUN mkdir ~/.cache && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# ENV PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/
+# ENV MANPATH="$MANPATH:/home/linuxbrew/.linuxbrew/share/man"
+# ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
+# ENV HOMEBREW_NO_AUTO_UPDATE=1
+# RUN sudo apt remove -y cmake \
+#     && brew install cmake
 # RUN echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc.d/homebrew.sh
 
 # hygen
-RUN bash -ic "brew tap jondot/tap"
-RUN bash -ic "brew install hygen"
+# RUN bash -ic "brew tap jondot/tap"
+# RUN bash -ic "brew install hygen"
 
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 
@@ -39,6 +39,9 @@ RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 
 #
 RUN bash -ic "go get -v golang.org/x/tools/gopls"
+
+# hygen
+RUN bash -ic "npm i -g hygen"
 
 # ZSH
 ENV ZSH_THEME cloud
