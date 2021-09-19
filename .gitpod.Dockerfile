@@ -11,6 +11,14 @@ RUN sudo apt-get update \
     zsh \
     && sudo rm -rf /var/lib/apt/lists/*
 
+# homebrew
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN brew update
+
+# hygen
+RUN brew tap jondot/tap
+RUN brew install hygen
+
 RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 
 RUN echo ". $HOME/.asdf/asdf.sh" >> $HOME/.bashrc.d/asdf.sh
