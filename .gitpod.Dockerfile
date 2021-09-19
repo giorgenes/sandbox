@@ -9,6 +9,7 @@ RUN sudo apt-get update \
     build-essential procps file \
     packer \
     zsh \
+    httpie \
     && sudo rm -rf /var/lib/apt/lists/*
 
 # homebrew
