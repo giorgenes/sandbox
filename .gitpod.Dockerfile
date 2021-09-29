@@ -4,13 +4,27 @@ FROM gitpod/workspace-base:latest
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 RUN sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
+# docker
+RUN curl -o /var/lib/apt/dazzle-marks/docker.gpg -fsSL https://download.docker.com/linux/ubuntu/gpg \
+    && apt-key add /var/lib/apt/dazzle-marks/docker.gpg \
+    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
 RUN sudo apt-get update \
     && sudo apt-get install -y gnupg software-properties-common curl git dirmngr gpg gawk \
     build-essential procps file \
     packer \
     zsh \
     httpie \
+    install-packages docker-ce docker-ce-cli containerd.io \
     && sudo rm -rf /var/lib/apt/lists/*
+    
+# docker 
+USER root
+RUN curl -o /usr/bin/slirp4netns -fsSL https://github.com/rootless-containers/slirp4netns/releases/download/v1.1.12/slirp4netns-$(uname -m) \
+    && chmod +x /usr/bin/slirp4netns
+RUN curl -o /usr/local/bin/docker-compose -fsSL https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64 \
+    && chmod +x /usr/local/bin/docker-compose 
+USER gitpod
 
 # homebrew
 # ENV TRIGGER_BREW_REBUILD=2
