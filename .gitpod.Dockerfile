@@ -14,7 +14,7 @@ RUN sudo apt-get update \
     packer \
     zsh \
     httpie \
-    install-packages docker-ce docker-ce-cli containerd.io \
+    docker-ce docker-ce-cli containerd.io \
     && sudo rm -rf /var/lib/apt/lists/*
     
 # docker 
