@@ -5,9 +5,8 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 RUN sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
 # docker
-RUN curl -o /var/lib/apt/dazzle-marks/docker.gpg -fsSL https://download.docker.com/linux/ubuntu/gpg \
-    && apt-key add /var/lib/apt/dazzle-marks/docker.gpg \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 RUN sudo apt-get update \
     && sudo apt-get install -y gnupg software-properties-common curl git dirmngr gpg gawk \
