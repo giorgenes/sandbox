@@ -10,7 +10,7 @@ RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
 
 RUN sudo apt-get update \
     && sudo apt-get install -y gnupg software-properties-common curl git dirmngr gpg gawk \
-    linux-headers-$(uname -r) build-essential procps filelibreadline-dev zlib1g-dev \
+    linux-headers-$(uname -r) build-essential procps file libreadline-dev zlib1g-dev \
     packer \
     zsh \
     httpie \
