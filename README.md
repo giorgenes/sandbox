@@ -21,7 +21,9 @@ Inside this repo you can find:
 
 ## Coding Interviews
 
-- [RobotRock](https://github.com/giorgenes/playground/tree/main/coding-challenges/robotrock): A simple game where a robot is given direction instructions and navigates on a grid like tabletop. ![ruby](https://img.shields.io/badge/Ruby-CC342D?style=flat&logo=ruby&logoColor=white)
+| Challenge Title | Description | Stack |
+|-----------------|-------------|-------|
+|[RobotRock](https://github.com/giorgenes/playground/tree/main/coding-challenges/robotrock) | A simple game where a robot is given direction instructions and navigates on a grid like tabletop | ![ruby](https://img.shields.io/badge/Ruby-CC342D?style=flat&logo=ruby&logoColor=white) |
 
 ## HackerRank Solutions
 
