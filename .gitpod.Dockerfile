@@ -16,7 +16,7 @@ RUN sudo apt-get update \
     httpie \
     docker-ce docker-ce-cli containerd.io \
     && sudo rm -rf /var/lib/apt/lists/*
-    
+
 # docker 
 USER root
 RUN curl -o /usr/bin/slirp4netns -fsSL https://github.com/rootless-containers/slirp4netns/releases/download/v1.1.12/slirp4netns-$(uname -m) \
@@ -60,6 +60,9 @@ RUN bash -ic "go get honnef.co/go/tools/cmd/staticcheck"
 
 # hygen
 RUN bash -ic "npm i -g hygen"
+
+# yarn
+RUN bash -ic "npm install --global yarn"
 
 # ZSH
 ENV ZSH_THEME cloud
