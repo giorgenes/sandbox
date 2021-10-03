@@ -1,4 +1,4 @@
-ruby 2.6.3
+ruby 2.7.4
 golang 1.16.5
 python 3.9.6
 awscli 2.2.20
@@ -6,3 +6,4 @@ terraform 1.0.2
 sops 3.7.1
 nodejs 14.17.6
 java openjdk-10.0.1
+postgres 10.18

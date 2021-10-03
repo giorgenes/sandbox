@@ -10,7 +10,7 @@ RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
 
 RUN sudo apt-get update \
     && sudo apt-get install -y gnupg software-properties-common curl git dirmngr gpg gawk \
-    build-essential procps file \
+    linux-headers-$(uname -r) build-essential procps filelibreadline-dev zlib1g-dev \
     packer \
     zsh \
     httpie \
@@ -55,7 +55,7 @@ RUN bash -c ". $HOME/.bashrc.d/asdf.sh && asdf install"
 RUN bash -ic "go get -v golang.org/x/tools/gopls"
 RUN bash -ic "go get github.com/uudashr/gopkgs/v2/cmd/gopkgs"
 RUN bash -ic "go get github.com/ramya-rao-a/go-outline"
-RUN bash -ic "go get github.com/go-delve/delve/cmd/dlv"
+RUN bash -ic "go get github.com/go-delve/delve/cmd/dlv@master"
 RUN bash -ic "go get honnef.co/go/tools/cmd/staticcheck"
 
 # hygen

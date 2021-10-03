@@ -9,4 +9,7 @@ asdf plugin add terraform
 asdf plugin add sops
 asdf plugin-add java
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 
+asdf plugin-add postgres
+asdf plugin-add elasticsearch https://github.com/asdf-community/asdf-elasticsearch.git
+
 
