@@ -7,3 +7,4 @@ sops 3.7.1
 nodejs 14.17.6
 java openjdk-10.0.1
 postgres 10.18
+elasticsearch 7.15.0
