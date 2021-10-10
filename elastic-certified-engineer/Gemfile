@@ -2,4 +2,5 @@ source 'http://rubygems.org'
 
 gem 'rspec'
 gem 'byebug'
-gem 'god'
+gem 'elasticsearch'
+gem 'elasticsearch-dsl'

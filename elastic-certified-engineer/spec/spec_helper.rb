@@ -98,3 +98,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+require 'elasticsearch'
+require 'elasticsearch/dsl'
+include Elasticsearch::DSL
+
