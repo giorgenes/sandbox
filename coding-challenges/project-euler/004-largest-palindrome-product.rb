@@ -1,27 +1,47 @@
-def combinations(n, r)
-  c = Array.new(r, 0)
+require 'byebug'
+require './algo'
 
-  yield c
+# is the number a product of 2 3 digit number? (xxx * xxx)
+def is_3_digit_product?(num)
+  factors = prime_factors(num)
+  splits = factors.size.div(2)
+  indexes = (0...(factors.size)).to_a
 
-  # stop when c = [n - 1, n - 1, ..., n - 1]
-  i = r - 1
-  while !c.all? { |el| el == n - 1 }
+  while splits > 0
+    indexes.combination(splits).each do |combi|
+      a = combi.map { |i| factors[i] }.inject(1) { |product, n| product * n }
+      b = factors.each_with_index.find_all { |factor, index| !combi.include?(index) }.inject(1) { |product, n| product * n[0] }
+
+      if a.to_s.size == 3 && b.to_s.size == 3
+        return true
+      end
+    end
+
+    splits -= 1
   end
+
+  false
 end
 
-def is_pal?(num)
-  num.to_s == num.to_s.reverse
-end
+max_num = (999 * 999).to_s
+mid = max_num.size.div(2)
+puts mid
+mid += 1 if max_num.size % 2 != 0
+puts mid
 
-(0..999).to_a.repeated_combination(2).each do |c|
-  a, b = c
+half = max_num[0, mid]
 
-  a = 999 - a
-  b = 999 - b
-
-  if is_pal?(a * b)
-    puts a, b
-    puts a * b
-    exit 0
+num = half.to_i
+next_pal = "#{num}#{num.to_s.reverse}".to_i
+puts next_pal
+while next_pal > 99 * 99
+  if is_3_digit_product?(next_pal)
+    puts next_pal
+    exit 1
   end
+
+  num -= 1
+  next_pal = "#{num}#{num.to_s.reverse}".to_i
 end
+
+puts half
