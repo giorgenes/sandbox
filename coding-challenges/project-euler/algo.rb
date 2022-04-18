@@ -22,6 +22,20 @@ def efficient_is_prime?(n)
   true
 end
 
+def enum_prime(n)
+  count = 0
+  i = 2
+
+  while count < n
+    if is_prime?(i)
+      yield i
+      count += 1
+    end
+
+    i += 1
+  end
+end
+
 def is_prime?(n)
   efficient_is_prime?(n)
 end
