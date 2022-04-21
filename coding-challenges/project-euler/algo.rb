@@ -78,3 +78,57 @@ end
 def is_pal?(num)
   num.to_s == num.to_s.reverse
 end
+
+def enum_divisibles(num)
+  return enum_for(__method__, num) unless block_given?
+
+  factors = prime_factors(num)
+  splits = factors.size.div(2)
+  indexes = (0...(factors.size)).to_a
+
+  while splits > 0
+    indexes.combination(splits).each do |combi|
+      a = combi.map { |i| factors[i] }.inject(1) { |product, n| product * n }
+      b = factors.each_with_index.find_all { |factor, index| !combi.include?(index) }.inject(1) { |product, n| product * n[0] }
+
+      yield a
+      yield b
+    end
+
+    splits -= 1
+  end
+end
+
+def triangle_numbers(max)
+  return enum_for(__method__, max) unless block_given?
+
+  triangle_number = 0
+  i = 1
+
+  while i < max
+    triangle_number = triangle_number + i
+
+    yield triangle_number
+
+    i += 1
+  end
+end
+
+
+def collatz_sequence(start, n)
+  return enum_for(__method__, start, n) unless block_given?
+
+  while n > 0
+    yield start
+
+    break if start == 1
+
+    if start % 2 == 0
+      start = start / 2
+    else
+      start = 3 * start + 1
+    end
+
+    n -= 1
+  end
+end
