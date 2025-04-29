@@ -86,3 +86,4 @@ build-iPhoneSimulator/
 *.lock
 **/nodes/**
 **/log/*.json
+**/__pycache__/*
