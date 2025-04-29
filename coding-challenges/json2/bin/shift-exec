@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+# require lib/cli
+require 'debug'
+require_relative '../lib/cli'
+require_relative '../lib/json_adapter'
+require_relative '../lib/database'
+
+adapter = JsonAdapter.new
+adapter.load_from("./clients.json")
+
+db = Database.new(adapter)
+
+db.load_table(:clients, "clients.json")
+db.create_index(:clients, :full_name)
+db.create_index(:clients, :email)
+
+Cli.new(ARGV, db).run
